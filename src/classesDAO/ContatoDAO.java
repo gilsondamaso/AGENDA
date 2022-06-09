@@ -10,16 +10,18 @@ import java.util.List;
 import classes.Contato;
 import conexao.Conexao;
 
+//Classe de processamento de dados(cadas Classe criada deve ter uma classe DAO. EX: Contato - ContatoDAO)
 public class ContatoDAO {
-
+    //Método salvar
     public void Salvar(Contato contato){
-
+        //String do SQL que será usado neste método. 
         String sql = "INSERT INTO contato (nome, idade, dataCadastro) VALUES (?, ?, ?)";
-
+        
+        //Declaração das classes connection e PerparedStatement com null. Será utilizado no decorrer do código. 
         Connection conn = null;
-
         PreparedStatement pstm = null;
 
+        //Try - Catch será realizada uma validação em todos os campos, caso algum passo dê errado cao no catch com o retorno do erro. 
         try{
             conn = Conexao.createConnectionToMySQL();
             pstm = (PreparedStatement) conn.prepareStatement(sql);
@@ -30,8 +32,9 @@ public class ContatoDAO {
             System.out.println("Contato Salvo com Sucesso!!");
         } catch (Exception e) {
             e.printStackTrace();
+        //Finally independente de sucesso ou erro o bloco finally é executado para que a conexão seja fechada. 
         } finally {
-            //fechar Conexões
+            //fechar Conexões tanto a PreparedStatement quanto ao Connection
             try {
                 if (pstm!=null) {
                     pstm.close();
@@ -45,7 +48,7 @@ public class ContatoDAO {
             }
         }
     }
-
+    //Método Listar contatos
     public List<Contato> listarContatos(){
         String sql = "SELECT * FROM contato";
         List<Contato> contatos = new ArrayList<Contato>();
@@ -84,7 +87,7 @@ public class ContatoDAO {
         }
         return contatos;
     }
-
+    //Método Alterar Contato
     public void alterarContato(Contato contato){
 
         String sql = "UPDATE contato  SET nome = ?, idade = ?, dataCadastro = ? WHERE id = ?";
@@ -117,6 +120,7 @@ public class ContatoDAO {
             }
         }
     }
+    //Método Remover Contato
     public void removerContato(int idRem){
         String sql = "DELETE FROM contato WHERE id = ?";
         Connection conn = null;

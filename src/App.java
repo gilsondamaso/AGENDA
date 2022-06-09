@@ -43,29 +43,20 @@ public class App {
                 case 3:                    
                     System.out.println("INFORME O ID DO CONTATO QUE DESEJA ALTERAR?");
                     int contAlt = sc.nextInt();
-                    
-                    System.out.println("DESEJA ALTERAR O NOME(s/n)?");
-                    char sn = sc.next().charAt(0);
-                    if(sn == 's'){
-                        System.out.println("INFORME O NOME: ");
-                        sc.nextLine();
-                        cont.setNome(sc.nextLine());
-                    } else {
-                        cont.setNome(cont.getNome());
-                    }
-                    System.out.println("DESEJA ALTERAR A IDADE(s/n)?");
-                    sn = sc.next().charAt(0);
-                    if(sn == 's'){
-                        System.out.println("INFORME NOVA IDADE: ");
-                        cont.setIdade(sc.nextInt());
-                    } else {
-                        cont.setIdade(cont.getIdade());
-                    }
+                    System.out.println("INFORME O NOME: ");
+                    sc.nextLine();
+                    cont.setNome(sc.nextLine());
+                    System.out.println("INFORME NOVA IDADE: ");
+                    cont.setIdade(sc.nextInt());
                     cont.setDataCadastro(new Date());
                     cont.setId(contAlt);
                     contatodao.alterarContato(cont);
                     break;
-                case 4:                    
+                case 4:
+                    for (Contato c : contatodao.listarContatos()) {
+                        System.out.println("-------------------");
+                        System.out.println("Id: " + c.getId() + " - Nome" + c.getNome());                        
+                    }                    
                     System.out.println("INFORME O ID DO CONTATO QUE DESEJA REMOVER?");
                     int contRem = sc.nextInt();
                     contatodao.removerContato(contRem);                    

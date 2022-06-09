@@ -1,5 +1,7 @@
 package classes;
 import java.util.Date;
+
+//Classe contato com seus atributos Gets e Sets
 public class Contato {
     private int id;
     private String nome;
