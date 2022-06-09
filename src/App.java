@@ -23,6 +23,7 @@ public class App {
             
             switch (opc) {
                 case 1:
+                    System.out.println("---------------------");
                     System.out.println("INFORME SEU NOME: ");
                     sc.nextLine();
                     cont.setNome(sc.nextLine());
@@ -32,17 +33,17 @@ public class App {
                     contatodao.Salvar(cont);                                        
                     break;
                 case 2:
-                for (Contato c : contatodao.listarContatos()) {
-                    System.out.println("-------------------");
-                    System.out.println("Id: " + c.getId());
-                    System.out.println("Contato: " + c.getNome());
-                    System.out.println("Idade: " + c.getIdade());                        
-                    System.out.println("Data Cadastro: " + c.getDataCadastro());
+                    System.out.println("Lista de Contatos: ");
+                    for (Contato c : contatodao.listarContatos()) {                    
+                        System.out.print("Id: " + c.getId());
+                        System.out.print(" Contato: " + c.getNome());
+                        System.out.print(" Idade: " + c.getIdade());                        
+                        System.out.println(" Data Cadastro: " + c.getDataCadastro());
                     }
                     break;
                 case 3:  
-                    for (Contato c : contatodao.listarContatos()) {
-                        System.out.println("-------------------");
+                    System.out.println("Lista de Contatos: ");
+                    for (Contato c : contatodao.listarContatos()) {                        
                         System.out.println("Id: " + c.getId() + " - Nome: " + c.getNome());                        
                     }                  
                     System.out.println("INFORME O ID DO CONTATO QUE DESEJA ALTERAR?");
@@ -57,8 +58,9 @@ public class App {
                     contatodao.alterarContato(cont);
                     break;
                 case 4:
+                    System.out.println("Lista de Contatos: ");
                     for (Contato c : contatodao.listarContatos()) {
-                        System.out.println("-------------------");
+                        
                         System.out.println("Id: " + c.getId() + " - Nome: " + c.getNome());                        
                     }                    
                     System.out.println("INFORME O ID DO CONTATO QUE DESEJA REMOVER?");

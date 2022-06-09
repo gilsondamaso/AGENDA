@@ -62,8 +62,7 @@ public class ContatoDAO {
             conn = Conexao.createConnectionToMySQL();
             pstm = (PreparedStatement) conn.prepareStatement(sql);
             //ExecuteQuery em casos de Select. Em casos de inserção, alteração e exclusão é utilizado .execute();
-            rst = pstm.executeQuery();
-
+            rst = pstm.executeQuery();           
             while (rst.next()) {
                 Contato contato = new Contato();
                 contato.setId(rst.getInt("id"));
@@ -71,6 +70,7 @@ public class ContatoDAO {
                 contato.setIdade(rst.getInt("idade"));
                 contato.setDataCadastro(rst.getDate("dataCadastro"));
                 contatos.add(contato);
+                
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -136,7 +136,7 @@ public class ContatoDAO {
 
             pstm.execute();
 
-            System.out.println("Contato deletado com Sucesso!!S");
+            System.out.println("Contato deletado com Sucesso!!");
                         
         } catch (Exception e) {
             e.printStackTrace();
