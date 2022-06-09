@@ -40,7 +40,11 @@ public class App {
                     System.out.println("Data Cadastro: " + c.getDataCadastro());
                     }
                     break;
-                case 3:                    
+                case 3:  
+                    for (Contato c : contatodao.listarContatos()) {
+                        System.out.println("-------------------");
+                        System.out.println("Id: " + c.getId() + " - Nome: " + c.getNome());                        
+                    }                  
                     System.out.println("INFORME O ID DO CONTATO QUE DESEJA ALTERAR?");
                     int contAlt = sc.nextInt();
                     System.out.println("INFORME O NOME: ");
@@ -55,7 +59,7 @@ public class App {
                 case 4:
                     for (Contato c : contatodao.listarContatos()) {
                         System.out.println("-------------------");
-                        System.out.println("Id: " + c.getId() + " - Nome" + c.getNome());                        
+                        System.out.println("Id: " + c.getId() + " - Nome: " + c.getNome());                        
                     }                    
                     System.out.println("INFORME O ID DO CONTATO QUE DESEJA REMOVER?");
                     int contRem = sc.nextInt();
@@ -67,11 +71,6 @@ public class App {
             }
                 
         } while (opc != 0);
-        
-        
-        
-
         sc.close();
-
     }
 }

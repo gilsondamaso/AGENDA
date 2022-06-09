@@ -12,8 +12,7 @@ public class Conexao {
     //Método connection onde é montada todas conexão passando os parâmetros criados acima retornando a conexão
     public static Connection createConnectionToMySQL() throws Exception{
         //identificação do Class for Name
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        
+        Class.forName("com.mysql.cj.jdbc.Driver");        
         Connection connection = DriverManager.getConnection(url, user, pass );
         return connection;
     }

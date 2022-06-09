@@ -7,6 +7,7 @@ public class Contato {
     private String nome;
     private int idade;
     private Date dataCadastro;
+
     public int getId() {
         return id;
     }
@@ -30,9 +31,5 @@ public class Contato {
     }
     public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
-    }
-
-    
-    
-    
+    }    
 }

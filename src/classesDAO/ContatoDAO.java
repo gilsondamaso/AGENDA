@@ -55,11 +55,13 @@ public class ContatoDAO {
 
         Connection conn = null;
         PreparedStatement pstm = null;
+        //retorno da consulta SQL.
         ResultSet rst = null;
 
         try {
             conn = Conexao.createConnectionToMySQL();
             pstm = (PreparedStatement) conn.prepareStatement(sql);
+            //ExecuteQuery em casos de Select. Em casos de inserção, alteração e exclusão é utilizado .execute();
             rst = pstm.executeQuery();
 
             while (rst.next()) {
