@@ -92,7 +92,7 @@ public class ContatoDAO {
     //Método Alterar Contato
     public void alterarContato(Contato contato){
 
-        String sql = "UPDATE contato  SET nome = ?, idade = ?, dataCadastro = ? WHERE id = ?";
+        String sql = "UPDATE contato SET nome = ?, idade = ?, dataCadastro = ? WHERE id = ?";
         Connection conn = null;
         PreparedStatement pstm = null;
 
